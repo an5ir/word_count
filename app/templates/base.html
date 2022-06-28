@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }} - Work Count</title>
+    </head>
+    <body>
+    <div>Word Count: <a href="{{ url_for('url_form') }}">Home</a></div>
+    <hr>
+    {% block url_form %}{% endblock %}
+    </body>
+</html>

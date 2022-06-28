@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block url_form %}
+  <form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <span>
+      {{ form.url.label }}
+      {{ form.url() }}
+      {{ form.submit() }}
+    </span>
+      <div>
+      {% for error in form.url.errors %}
+      <span style="color:red">[{{ error }}]</span>
+      {% endfor %}
+      </div>
+  </form>
+
+{% block word_count %}
+    {% if word_count %}
+    <h2>Word count for the following URL "{{ url.url }}":</h2>
+    <ul>
+        {% for item in word_count %}
+        <li>{{item[0]}}: {{item[1]}}</li>
+        {% endfor %}
+    </ul>
+    {% elif url.url %}
+    <span style="color:red">Not a valid URL: {{ url.url }}</span>
+    {% else %}
+    <div></div>
+    {% endif %}
+{% endblock %}
+
+{% endblock %}
